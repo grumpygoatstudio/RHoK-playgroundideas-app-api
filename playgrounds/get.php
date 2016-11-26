@@ -6,6 +6,7 @@ include("../helpers.php");
 
 
 header("Content-Type: application/json");
+header("Access-Control-Allow-Origin: *");
 
 if (ValidRequiredQueryString("userId")) {
 	$userId = GetQueryString("userId", 0);

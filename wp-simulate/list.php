@@ -38,6 +38,8 @@ $hasPlaygrounds = count($playgrounds)>0;
 				<tr>
 					<th>Id</th>
 					<th>Name</th>
+					<th>Saved at</th>
+					<th>Updated at</th>
 					<th>Screenshot Name</th>
 					<th>Screenshot</th>
 					<th></th>
@@ -47,12 +49,15 @@ $hasPlaygrounds = count($playgrounds)>0;
 					<tr>
 						<td><?= $p->id ?></td>
 						<td><?= $p->name ?></td>
+						<td><?= date_format(date_create($p->created_at), "d-M-y H:i") ?></td>
+						<td><?= date_format(date_create($p->updated_at), "d-M-y H:i")  ?></td>
 						<td><?= $p->screenshot ?></td>
 						<td><img src="<?= $p->Screenshot_Url ?>" /></td>
 						<td><a href="app.php?userId=<?= $userId  ?>&designId=<?= $p->id ?>">Edit this design</a></td>
 					</tr>
 				<?php } ?>
 			</table>
+			<small>NB: Times are server time (Uk).</small>
 			<?php
 		} else { ?>
 			You don't have any saved playground ideas yet.

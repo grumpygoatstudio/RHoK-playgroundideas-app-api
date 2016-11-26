@@ -1,0 +1,33 @@
+{
+  "Objects" : [
+  {
+    "Name" : "Aeroplane",
+    "ImageName" : "Aeroplane",
+    "ModelName" : "Aeroplane",
+    "Catagory" : "Planes"
+  },
+  {
+    "Name" : "Amphitheatre",
+    "ImageName" : "amphitheater_tire_playgroundideas_colour.org__2",
+    "ModelName" : "amphitheater_tire_playgroundideas.org",
+    "Catagory" : "Listen to the rubbery sound!"
+  },
+  {
+    "Name" : "Aeroplane",
+    "ImageName" : "Aeroplane",
+    "ModelName" : "Aeroplane",
+    "Catagory" : "It flies around like a beast."
+  },
+    {
+    "Name" : "Aeroplane",
+    "ImageName" : "Aeroplane",
+    "ModelName" : "Aeroplane",
+    "Catagory" : "It flies around like a beast."
+  },
+  {
+    "Name" : "Amphitheatre",
+    "ImageName" : "amphitheater_tire_playgroundideas_colour.org__2",
+    "ModelName" : "amphitheater_tire_playgroundideas.org",
+    "Catagory" : "Listen to the rubbery sound!"
+  }]
+}
