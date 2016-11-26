@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.5.46-0ubuntu0.14.04.2)
 # Database: playgroundideas-app
-# Generation Time: 2016-11-26 01:12:19 +0000
+# Generation Time: 2016-11-26 07:23:51 +0000
 # ************************************************************
 
 
@@ -31,6 +31,7 @@ CREATE TABLE `playgrounds` (
   `name` varchar(1000) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
+  `screenshot` varchar(1000) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 

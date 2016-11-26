@@ -1,7 +1,6 @@
 <?php
 
-echo $_SERVER['DOCUMENT_ROOT']."==";
-echo dirname($_SERVER['DOCUMENT_ROOT']);
+
 
 ?>
 

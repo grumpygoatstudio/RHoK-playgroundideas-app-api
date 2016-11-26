@@ -29,5 +29,8 @@ $playground->Screenshot = $_FILES['screenshot']['name'];
 
 $playground->save();
 
+//non DB field
+$playground->Screenshot_Url = SCREENSHOT_URL_DIR.$playground->Screenshot;
+
 ReturnData("playground", $playground);
 ?>
