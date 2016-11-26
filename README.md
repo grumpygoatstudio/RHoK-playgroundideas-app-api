@@ -15,3 +15,5 @@
  Playgrounds:
   - Get all Playgrounds: /playgrounds/get.php
   - Get Playground with id x: /playgrounds/get.php?id={x}
+  - Save Playground: /playgrounds/save.php
+		- Post vars: userId, name, screenshot (image file)
