@@ -21,6 +21,7 @@
 			<li><a href="users/get.php" target="_blank">Get all Users</a></li>
 			<li><a href="users/get.php?id=1" target="_blank">Get one User</a></li>
 			<li><a href="playgrounds/get.php" target="_blank">Get all Playgrounds</a></li>
+			<li><a href="playgrounds/get.php?userId=1" target="_blank">Get all Playgrounds for one user</a></li>
 			<li><a href="playgrounds/get.php?id=1" target="_blank">Get one Playground</a></li>
 		</ul>
 		<hr />

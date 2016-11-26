@@ -7,7 +7,15 @@ include("../helpers.php");
 
 header("Content-Type: application/json");
 
-if (isset($_GET["id"])) {
+if (ValidRequiredQueryString("userId")) {
+	$userId = GetQueryString("userId", 0);
+	$plays = PlayGround::where("user_id", $userId)->get();
+	foreach ($plays as $p) {
+		//non DB field
+		$p->Screenshot_Url = SCREENSHOT_URL_DIR.$p->screenshot;
+	}
+	ReturnData("playground", $plays);
+} elseif (ValidRequiredQueryString("id")) {
 	$playId = GetQueryString("id", 0);
 	$play = PlayGround::where("id", $playId)->first();
 	//non DB field
@@ -15,6 +23,10 @@ if (isset($_GET["id"])) {
 	ReturnData("playground", $play);
 } else {
 	$plays = Playground::all();
+	foreach ($plays as $p) {
+		//non DB field
+		$p->Screenshot_Url = SCREENSHOT_URL_DIR.$p->screenshot;
+	}
 	ReturnData("playgrounds", $plays);
 }
 
