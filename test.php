@@ -1,16 +1,12 @@
 <?php
 header("Content-Type: application/json");
 
-
+GetData();
 
 function GetData() {
 
-	$response = array(
-		'status' => true,
-		'message' => 'Success',
-		'data' => ['bunch of data']);
 
-	echo json_encode($response);
+	echo '{"status":true,"message":"Success","user":{"id":1,"remote_id":22,"name":"Barry"}}';
 }
 
 ?>

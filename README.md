@@ -7,5 +7,11 @@
   - TODO: secure this better?
 
 2. Unity calls RESTful JSON API to get all the user data, designs, images etc
+
+ Users:
   - Get all users: /users/get.php
-  - Get user with id x: /users/get.php?id={x} 
+  - Get user with id x: /users/get.php?id={x}
+
+ Playgrounds:
+  - Get all Playgrounds: /playgrounds/get.php
+  - Get Playground with id x: /playgrounds/get.php?id={x}
