@@ -23,6 +23,8 @@ if ($_SERVER['HTTP_HOST'] == "playgroundideas.endzone.io") {
 		'prefix'    => '',
 	]);
 
+	define('APPROOT_URL', "http://".$_SERVER['SERVER_NAME'] . "/app-api" . DIRECTORY_SEPARATOR);
+
 } else {
 	//local testing version
 	$capsule->addConnection([
@@ -35,7 +37,7 @@ if ($_SERVER['HTTP_HOST'] == "playgroundideas.endzone.io") {
 		'collation' => 'utf8_unicode_ci',
 		'prefix'    => '',
 	]);
-
+	define('APPROOT_URL', "http://".$_SERVER['SERVER_NAME'] . DIRECTORY_SEPARATOR);
 }
 
 
@@ -48,6 +50,6 @@ $capsule->setAsGlobal();
 $capsule->bootEloquent();
 
 define("SCREENSHOT_UPLOAD_DIR",  __DIR__.'/uploads/');
-define("SCREENSHOT_URL_DIR",  "http://".$_SERVER['SERVER_NAME'] . dirname($_SERVER['REQUEST_URI']).'/uploads/');
+define("SCREENSHOT_URL_DIR",   APPROOT_URL. 'uploads/');
 
 ?>
