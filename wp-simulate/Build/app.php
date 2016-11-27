@@ -26,7 +26,7 @@
     dataUrl: "Release/Build.data",
     codeUrl: "Release/Build.js",
     memUrl: "Release/Build.mem",
-
+    
   };
 </script>
 <script src="Release/UnityLoader.js"></script>

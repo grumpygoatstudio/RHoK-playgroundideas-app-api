@@ -29,7 +29,7 @@ $hasPlaygrounds = count($playgrounds)>0;
 	</head>
 	<body>
 		<h1>Welcome user <?= $userId ?></h1>
-		<a href="app.php?userId=<?= $userId  ?>">Start a new design</a>
+		<a href="Build/app.php?userId=<?= $userId  ?>">Start a new design</a>
 		<hr />
 		<?php
 		if ($hasPlaygrounds) { ?>
@@ -38,22 +38,24 @@ $hasPlaygrounds = count($playgrounds)>0;
 				<tr>
 					<th>Id</th>
 					<th>Name</th>
+					<th></th>
+					<th>Screenshot</th>
 					<th>Saved at</th>
 					<th>Updated at</th>
 					<th>Screenshot Name</th>
-					<th>Screenshot</th>
-					<th></th>
+					<th>Model</th>
 				</tr>
 				<?php
 				foreach ($playgrounds as $p) { ?>
 					<tr>
 						<td><?= $p->id ?></td>
 						<td><?= $p->name ?></td>
+						<td><a href="Build/app.php?userId=<?= $userId  ?>&designId=<?= $p->id ?>">Edit this design</a></td>
+						<td><img src="<?= $p->Screenshot_Url ?>" /></td>
 						<td><?= date_format(date_create($p->created_at), "d-M-y H:i") ?></td>
 						<td><?= date_format(date_create($p->updated_at), "d-M-y H:i")  ?></td>
 						<td><?= $p->screenshot ?></td>
-						<td><img src="<?= $p->Screenshot_Url ?>" /></td>
-						<td><a href="app.php?userId=<?= $userId  ?>&designId=<?= $p->id ?>">Edit this design</a></td>
+						<td><?= $p->model ?></td>
 					</tr>
 				<?php } ?>
 			</table>

@@ -10,7 +10,7 @@ header("Access-Control-Allow-Origin: *");
 
 if (isset($_GET["id"])) {
 	$userId = GetQueryString("id", 0);
-	$user = User::where("id", $_GET["id"])->first();
+	$user = User::where("user_id", $_GET["id"])->first();
 	ReturnData("user", $user);
 } else {
 	$users = User::all();

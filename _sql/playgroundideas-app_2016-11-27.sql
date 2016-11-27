@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.5.46-0ubuntu0.14.04.2)
 # Database: playgroundideas-app
-# Generation Time: 2016-11-26 07:23:51 +0000
+# Generation Time: 2016-11-27 00:26:42 +0000
 # ************************************************************
 
 
@@ -32,6 +32,7 @@ CREATE TABLE `playgrounds` (
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   `screenshot` varchar(1000) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `model` text,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -43,18 +44,21 @@ CREATE TABLE `playgrounds` (
 DROP TABLE IF EXISTS `users`;
 
 CREATE TABLE `users` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `remote_id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Internal ID',
+  `user_id` int(11) NOT NULL COMMENT 'The WordPress user ID',
   `name` varchar(1000) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 
-INSERT INTO `users` (`id`, `remote_id`, `name`)
+INSERT INTO `users` (`id`, `user_id`, `name`, `created_at`, `updated_at`)
 VALUES
-	(1,22,'Barry');
+	(1,22,'Barry',NULL,NULL),
+	(3,99,'','2016-11-27 00:23:45','2016-11-27 00:23:45');
 
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;

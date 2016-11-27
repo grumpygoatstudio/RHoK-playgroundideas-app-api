@@ -14,6 +14,15 @@ if ($userId == 0) {
 	die;
 }
 
+$user = User::where("user_id", $userId)->first();
+if ($user==null) {
+	//user does not exist, so lets create one!
+	$user = new User();
+	$user->User_Id = $userId;
+	//name?
+	$user->save();
+}
+
 $imagePathParts = pathinfo($_FILES['screenshot']['name']);
 $filedatestamp = date('mdYHise');
 $savedFilename = $imagePathParts['filename'] . "-" . $filedatestamp . "." . $imagePathParts['extension'];
@@ -26,6 +35,7 @@ if (move_uploaded_file($_FILES['screenshot']['tmp_name'], $uploadfile)) {
 	$playground->User_Id = $userId;
 	$playground->Name = $playgroundName;
 	$playground->Screenshot = $savedFilename;
+	$playground->Model = GetPost("model", "");
 
 	$playground->save();
 
