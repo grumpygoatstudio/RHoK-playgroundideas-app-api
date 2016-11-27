@@ -11,7 +11,7 @@
 	<body>
 		<h1>Testing the Wordpress integration</h1>
 		<ul>
-			<li><a href="wp-simulate/list.php?userId=<?= rand() ?>" target="_blank">'Login' as a user who has not used Unity app before</a></li>
+			<li style="font-weight: bold;padding: 8px;;font-size:1.2em"><a href="wp-simulate/list.php?userId=<?= rand() ?>" target="_blank">'Login to Wordpress' as a user who has not used Unity app before</a></li>
 			<li><a href="wp-simulate/list.php?userId=1" target="_blank">'Login' as a user who has saved playgrounds</a></li>
 		</ul>
 		<hr />
