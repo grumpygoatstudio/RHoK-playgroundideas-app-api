@@ -1,12 +1,12 @@
 <?php
 
-$apiUrl = "http://playgroundideas.endzone.io/app-api/";
+$apiUrl = "http://playgroundideas.endzone.io/app-api";
 $userId = $_GET["userId"];
 
 //NB: In Wordpress calls the the Json API should use wp_ methods & pass the WP user id
 
 $jsonurl = $apiUrl."/playgrounds/get.php?userId=".$userId;
-$json = file_get_contents($jsonurl);
+$json = curl_get_contents($jsonurl);
 $response = json_decode($json);
 $playgrounds = $response->playground;
 $hasPlaygrounds = count($playgrounds)>0;
@@ -28,6 +28,11 @@ $hasPlaygrounds = count($playgrounds)>0;
 		</style>
 	</head>
 	<body>
+		<!--
+		URL: <?= $jsonurl; ?>
+
+		JSON: <?= $json; ?>
+		-->
 		<h1>Welcome user <?= $userId ?></h1>
 		<a href="Build/app.php?userId=<?= $userId  ?>">Start a new design</a>
 		<hr />
@@ -66,3 +71,22 @@ $hasPlaygrounds = count($playgrounds)>0;
 		<?php } ?>
 	</body>
 </html>
+
+<?php
+
+
+function curl_get_contents($url)
+{
+    $ch = curl_init();
+
+    curl_setopt($ch, CURLOPT_HEADER, 0);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($ch, CURLOPT_URL, $url);
+
+    $data = curl_exec($ch);
+    curl_close($ch);
+
+    return $data;
+}
+
+?>

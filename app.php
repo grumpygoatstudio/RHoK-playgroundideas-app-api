@@ -1,5 +1,6 @@
 <?php
 
+
 require 'vendor/autoload.php';
 
 
@@ -8,7 +9,6 @@ use Illuminate\Container\Container;
 use Illuminate\Database\Capsule\Manager as Capsule;
 
 $capsule = new Capsule;
-
 
 if ($_SERVER['HTTP_HOST'] == "playgroundideas.endzone.io") {
 	//hosted testing version

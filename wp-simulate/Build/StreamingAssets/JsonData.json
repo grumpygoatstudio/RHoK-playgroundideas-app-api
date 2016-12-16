@@ -1114,9 +1114,9 @@
 
 "Name": "Double Drum",
 
-"ImageName": "double drum",
+"ImageName": "double_drum",
 
-"ModelName": "double drum",
+"ModelName": "double_drum",
 
 "MainCategory": "Elements",
 
@@ -2227,6 +2227,20 @@
 "MainCategory": "Landscape",
 
 "Category": "Trees"
+
+},
+
+{
+	
+"Name": "Car Tire Climber",
+
+"ImageName": "cartire_climber",
+
+"ModelName": "cartire_climber",
+
+"MainCategory": "Elements",
+
+"Category": "Climbing"
 
 }
 
