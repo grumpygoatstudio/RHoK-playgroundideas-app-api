@@ -48,6 +48,28 @@
 			</p>
 			<input type="submit" />
 		</form>
+
+		<hr />
+		<h5>Update Playground</h5>
+		This will update an existing playground, if one with this ID exists, otherwise it will create a new one.
+		<form action="playgrounds/save.php" method="post" target="_blank" enctype="multipart/form-data">
+			<p>
+				<label for="userId">Playground ID:</label><input name="designId" type="number" />
+			</p>
+			<p>
+				<label for="userId">User ID:</label><input name="userId" type="number" />
+			</p>
+			<p>
+				<label for="name">Playground Name:</label><input name="name" type="text" />
+			</p>
+			<p>
+				<label for="name">Screenshot file:</label><input name="screenshot" type="file" />
+			</p>
+			<p>
+				<label for="name">Playground Data Model (JSoN):</label><input name="model" type="text" />
+			</p>
+			<input type="submit" />
+		</form>
 		<hr />
 		<h5>Delete Playground</h5>
 		This will delete a saved playground.
