@@ -2,8 +2,28 @@
 
 $apiUrl = "http://playgroundideas.endzone.io/app-api";
 $userId = $_GET["userId"];
+//NB: In Wordpress calls to the Json API should use wp_ methods & pass the WP user id
 
-//NB: In Wordpress calls the the Json API should use wp_ methods & pass the WP user id
+$actionMessage = "";
+if (isset($_GET["action"])) {
+	$action = $_GET["action"];
+	if ($action == "delete") { //delete a saved playground
+		$designId = $_GET["designId"];
+		$jsonurl = $apiUrl."/playgrounds/delete.php?userId=".$userId."&designId=".$designId;
+		//echo $jsonurl;
+		$json = curl_get_contents($jsonurl);
+		$response = json_decode($json);
+		//echo var_dump($response);
+		if ($response == null) {
+			$actionMessage = '<p class="error">Delete server error: unable to delete playground</p>';
+		} else if ($response->status == "success") {
+			$actionMessage = '<p class="success">Delete successful</p>';
+		} else {
+			$actionMessage = '<p class="error">'.$response->message.'</p>';
+		}
+	}
+}
+
 
 $jsonurl = $apiUrl."/playgrounds/get.php?userId=".$userId;
 $json = curl_get_contents($jsonurl);
@@ -25,6 +45,14 @@ $hasPlaygrounds = count($playgrounds)>0;
 				border: 1px solid black;
 				padding: 4px
 			}
+			.error {
+				font-weight: bold;
+				color: red;
+			}
+			.success {
+				font-weight: bold;
+				color: green;
+			}
 		</style>
 	</head>
 	<body>
@@ -36,6 +64,7 @@ $hasPlaygrounds = count($playgrounds)>0;
 		<h1>Welcome user <?= $userId ?></h1>
 		<a href="Build/app.php?userId=<?= $userId  ?>">Start a new design</a>
 		<hr />
+		<?= $actionMessage ?>
 		<?php
 		if ($hasPlaygrounds) { ?>
 			<h5>Your saved playground ideas</h5>
@@ -56,6 +85,7 @@ $hasPlaygrounds = count($playgrounds)>0;
 						<td><?= $p->id ?></td>
 						<td><?= $p->name ?></td>
 						<td><a href="Build/app.php?userId=<?= $userId  ?>&designId=<?= $p->id ?>">Edit this design</a></td>
+						<td><a href="list.php?action=delete&userId=<?= $userId  ?>&designId=<?= $p->id ?>">Delete this design</a></td>
 						<td><img src="<?= $p->Screenshot_Url ?>" /></td>
 						<td><?= date_format(date_create($p->created_at), "d-M-y H:i") ?></td>
 						<td><?= date_format(date_create($p->updated_at), "d-M-y H:i")  ?></td>

@@ -51,7 +51,7 @@
 		<hr />
 		<h5>Delete Playground</h5>
 		This will delete a saved playground.
-		<form action="playgrounds/delete.php" method="post" target="_blank" enctype="multipart/form-data">
+		<form action="playgrounds/delete.php" method="get" target="_blank" enctype="multipart/form-data">
 			<p>
 				<label for="userId">User ID:</label><input name="userId" type="number" />
 			</p>

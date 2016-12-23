@@ -24,9 +24,10 @@ if ($user==null) {
 }
 
 $imagePathParts = pathinfo($_FILES['screenshot']['name']);
-$filedatestamp = date('mdYHise');
-$savedFilename = $imagePathParts['filename'] . "-" . $filedatestamp . "." . $imagePathParts['extension'];
+$filedatestamp = date('mdYHis');
+$savedFilename = str_replace("//", "", $imagePathParts['filename']) . "-" . $filedatestamp . "." . $imagePathParts['extension'];
 $uploadfile = SCREENSHOT_UPLOAD_DIR . $savedFilename;
+
 if (move_uploaded_file($_FILES['screenshot']['tmp_name'], $uploadfile)) {
 	$playgroundName = GetPost("name", "New Playground");
 

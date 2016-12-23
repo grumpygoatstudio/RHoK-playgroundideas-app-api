@@ -8,24 +8,27 @@ include("../helpers.php");
 header("Content-Type: application/json");
 header("Access-Control-Allow-Origin: *");
 
-$userId = GetPost("userId", 0);
+$userId = GetQueryString("userId", 0);
 if ($userId == 0) {
 	ReturnErrorData("No user");
 	die;
 }
 
-$user = User::where("id", $userId)->first();
+$user = User::where("user_id", $userId)->first();
 if ($user==null) {
-	ReturnErrorData("No valid user");
+	ReturnErrorData("No valid user: ".$userId);
 	die;
 }
 
 
-if (ValidRequiredPost("designId")) {
-	$playId = GetPost("designId", 0);
+if (ValidRequiredQueryString("designId")) {
+	$playId = GetQueryString("designId", 0);
 	$play = PlayGround::where("id", $playId)->first();
-
-	if ($play->user_id != $user->id){
+	if ($play==null) {
+		ReturnErrorData("No valid playground");
+		die;
+	}
+	if ($play->user_id !== $user->user_id){
 		ReturnErrorData("Error deleting (not for that user)");
 		die;
 	}
