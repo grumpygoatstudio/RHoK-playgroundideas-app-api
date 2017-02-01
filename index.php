@@ -29,6 +29,8 @@
 			<li><a href="playgrounds/get.php" target="_blank">Get all Playgrounds</a></li>
 			<li><a href="playgrounds/get.php?userId=1" target="_blank">Get all Playgrounds for one user</a></li>
 			<li><a href="playgrounds/get.php?id=1" target="_blank">Get one Playground</a></li>
+			<li><a href="assets/get.php?userId=12&designId=1&assetName=testPhotoAsset.jpg" target="_blank">Get an Asset</a></li>
+			<li><a href="assets/playground_get_all.php?userId=12&designId=1" target="_blank">Get All Assets From A Playground</a></li>
 		</ul>
 		<hr />
 		<h5>Save Playground</h5>
