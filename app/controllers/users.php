@@ -7,6 +7,11 @@ use Models\Playground;
 use Models\Image;
 
 class Users{
+    public static function get_user($user_id) {
+        $user = User::where("user_id", $userId)->first();
+        return $user;
+    }
+    
     public static function create_user($user_id, $name) {
         $user = User::create(['user_id'=>$user_id,'name'=>$name]);
         return $user;

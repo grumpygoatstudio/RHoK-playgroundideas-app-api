@@ -7,6 +7,11 @@ use Models\User;
 use Models\Image;
 
 class Playgrounds {
+    public static function get_playground($designId) {
+        $playground = PlayGround::where("id", $designId)->first();
+        return $playground;
+    }
+
     public static function create_playground($user_id, $design_id) {
         $user = Playground::create(['user_id'=>$user_id,'design_id'=>$design_id, 'screenshot'=>"", 'model'=>""]);
         return $user;

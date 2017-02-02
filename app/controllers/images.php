@@ -7,14 +7,12 @@ use Models\Image;
 
 class Images{
     // create an Image
-    public static function create_image($user_id, $design_id, $fileName){
-        $imgData = addslashes(file_get_contents($_FILES['userImage']['tmp_name']));
-        $imageProperties = getimageSize($_FILES['userImage']['tmp_name']);
+    public static function create_image($user_id, $design_id, $fileName, $type, $contents){
         $image = Image::create(['user_id'=>$user_id, 
                                 'design_id'=>$design_id, 
                                 'name'=>$fileName, 
-                                'type'=>$imageProperties['mime'], 
-                                'content'=>$imgData]);
+                                'type'=>$type, 
+                                'contents'=>$contents]);
         return $image;
     }
 
