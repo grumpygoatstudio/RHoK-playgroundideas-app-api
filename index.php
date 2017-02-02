@@ -1,10 +1,16 @@
 <?php
 
-require 'start.php'
+require 'start.php';
 
+use Controllers\Images; 
+use Controllers\Users;
+use Controllers\Playgrounds;
+
+$image = Images::create_image("12","1","TestImage3.jpg","");
+echo(json_encode($image));
 ?>
 
-<html>
+<!-- <html>
 	<head>
 
 	</head>
@@ -85,4 +91,4 @@ require 'start.php'
 			<input type="submit" />
 		</form>
 	</body>
-</html>
+</html> -->
