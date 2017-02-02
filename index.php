@@ -1,6 +1,6 @@
 <?php
 
-
+require 'start.php'
 
 ?>
 
