@@ -1,9 +1,11 @@
 <?php
 
-include("../app.php");
-include("../models.php");
-include("../helpers.php");
+require '../start.php';
+require '../helpers.php';
 
+use Models\Image; 
+use Models\User;
+use Models\Playground;
 
 header("Content-Type: application/json");
 header("Access-Control-Allow-Origin: *");
@@ -40,7 +42,7 @@ if (ValidRequiredQueryString("designId")) {
 // validate and pull assets if they exist
 if (ValidRequiredQueryString("assetName")) {
 	$assetName = GetQueryString("assetName", 0);
-	$assets = Image::where(["name"=>$assetName, "design_id"=>$design_id])->first();
+	$assets = Image::where(["name"=>$assetName, "design_id"=>$designId])->first();
 	if ($assets==null) {
 		ReturnErrorData("No valid assets found.");
 		die;

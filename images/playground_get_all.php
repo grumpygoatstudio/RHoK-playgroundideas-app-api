@@ -1,8 +1,11 @@
 <?php
 
-include("../app.php");
-include("../models.php");
-include("../helpers.php");
+require '../start.php';
+require '../helpers.php';
+
+use Models\Image; 
+use Models\User;
+use Models\Playground;
 
 
 header("Content-Type: application/json");
@@ -32,12 +35,12 @@ if (ValidRequiredQueryString("designId")) {
         ReturnErrorData("Error: Design not accessable for that user");
         die;
     }
-    $assets = Image::where(["design_id"=>$design_id])->get();
+    $assets = Image::where("design_id", $design->id)->get();
     if ($assets==null) {
         ReturnErrorData("No valid assets found.");
         die;
     }
-    ReturnData("assets", $assets);
+    ReturnData("assets", $assets); //$assets);
 } else {
     ReturnErrorData("Error: No valid design ID given.");
     die;

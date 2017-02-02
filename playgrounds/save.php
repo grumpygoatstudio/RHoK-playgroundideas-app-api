@@ -1,8 +1,11 @@
 <?php
 
-include("../app.php");
-include("../models.php");
-include("../helpers.php");
+require '../start.php';
+require '../helpers.php';
+
+use Models\Image; 
+use Models\User;
+use Models\Playground;
 
 
 header("Content-Type: application/json");
