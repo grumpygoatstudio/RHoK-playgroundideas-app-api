@@ -6,11 +6,11 @@ use Controllers\Images;
 use Controllers\Users;
 use Controllers\Playgrounds;
 
-$image = Images::create_image("12","1","TestImage3.jpg","");
-echo(json_encode($image));
+// $image = Images::create_image("12","1","TestImage3.jpg","");
+// echo(json_encode($image));
 ?>
 
-<!-- <html>
+<html>
 	<head>
 
 	</head>
@@ -91,4 +91,4 @@ echo(json_encode($image));
 			<input type="submit" />
 		</form>
 	</body>
-</html> -->
+</html>
