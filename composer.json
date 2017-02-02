@@ -1,5 +1,14 @@
 {
-    "require": {
+    "name": "RHoK - Playground Ideas App - API",
+    "description": "API for Playground app. Build with PHP.",
+    "type": "project",
+     "require": {
         "illuminate/database": "^5.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "Controllers\\": "app/controllers/",
+            "Models\\": "app/models/" 
+        }
     }
 }
