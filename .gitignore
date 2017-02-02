@@ -1,3 +1,4 @@
-vendor/*
-uploads/*
-uploads/*.png
+vendor
+composer.phar
+.DS_Store
+/uploads
