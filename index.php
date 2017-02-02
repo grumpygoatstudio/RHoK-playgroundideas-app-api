@@ -90,5 +90,23 @@ use Controllers\Playgrounds;
 			</p>
 			<input type="submit" />
 		</form>
+		<hr />
+		<h5>Create Image</h5>
+		This will create a new image.
+		<form action="images/save.php" method="post" target="_blank" enctype="multipart/form-data">
+			<p>
+				<label for="userId">User ID:</label>
+				<input id="userId" name="userId" type="number" required/>
+			</p>
+			<p>
+				<label for="designId">Playground ID:</label>
+				<input id="designId" name="designId" type="number" required/>
+			</p>
+			<p>
+				<label for="image">Image File:</label>
+				<input id="image" name="image" type="file" required/>
+			</p>
+			<input type="submit" />
+		</form>  	
 	</body>
 </html>
