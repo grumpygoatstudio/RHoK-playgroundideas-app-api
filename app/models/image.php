@@ -6,7 +6,7 @@ use \Illuminate\Database\Eloquent\Model;
 class Image extends Model {  
 
     protected $table = 'images';
-    protected $fillable = ['design_id', 'name', 'type', 'contents'];
+    protected $fillable = ['design_id', 'name', 'type', 'url'];
     
     public function playground()
     {
