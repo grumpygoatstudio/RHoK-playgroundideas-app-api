@@ -38,17 +38,26 @@ if (ValidRequiredPost("designId")) {
 
 if (isset($_FILES['image']) && $_FILES['image'] != "") {
 	$fileName = $_FILES['image']['name'];
-	$type = $_FILES['image']['type'];
-	$imageData = $_FILES['image'];
-	$image = Image::create(['user_id'=>$userId, 
-		                    'design_id'=>$designId, 
-		                    'name'=>$fileName, 
-		                    'type'=>$type, 
-		                    'contents'=>$imageData]);
-	ReturnData("image", $image);
+	$imagePathParts = pathinfo($_FILES['image']['name']);
+	$imageType = $_FILES['image']['type'];
+	$filedatestamp = date('mdYHis');
+	$savedFilename = str_replace("//", "", $imagePathParts['filename']) . "-" . $filedatestamp . "." . $imagePathParts['extension'];
+	$uploadfile = SCREENSHOT_UPLOAD_DIR . $savedFilename;
+
+	if (move_uploaded_file($_FILES['image']['tmp_name'], $uploadfile)) {
+		$imageUrl = SCREENSHOT_URL_DIR.$fileName;
+		$image = Image::create([
+			'user_id'=>$userId, 
+            'design_id'=>$designId, 
+            'name'=>$fileName, 
+            'type'=>$imageType, 
+            'url'=>$imageUrl
+		]);
+		ReturnData("image", $image);
+	} else {
+		ReturnErrorData("Error uploading image");
+	}
 } else {
 	ReturnErrorData("Error: No valid image file given.");
 	die;
 }	
-
-?>
